@@ -22,20 +22,20 @@ func main() {
 	switch temps {
 	case "seconde":
 		tempsEnSeconde = nbTransactions
-		tempsEnMinute = nbTransactions / 60
-		tempsEnHeure = nbTransactions / 3600
+		tempsEnMinute = nbTransactions * 60
+		tempsEnHeure = nbTransactions * 3600
 		fmt.Println("Transactions par seconde : ", tempsEnSeconde, "\n Transactions par minute : ", tempsEnMinute, "\nTransactions par heure : ", tempsEnHeure)
 	case "minute":
-		tempsEnSeconde = nbTransactions * 60
+		tempsEnSeconde = nbTransactions / 60
 		tempsEnMinute = nbTransactions
-		tempsEnHeure = nbTransactions / 60
+		tempsEnHeure = nbTransactions * 60
 		fmt.Println("Transactions par seconde : ", tempsEnSeconde, "\n Transactions par minute : ", tempsEnMinute, "\nTransactions par heure : ", tempsEnHeure)
 	case "heure":
-		tempsEnSeconde = nbTransactions * 3600
-		tempsEnMinute = nbTransactions * 60
+		tempsEnSeconde = nbTransactions / 3600
+		tempsEnMinute = nbTransactions / 60
 		tempsEnHeure = nbTransactions
 		fmt.Println("Transactions par seconde : ", tempsEnSeconde, "\n Transactions par minute : ", tempsEnMinute, "\nTransactions par heure : ", tempsEnHeure)
 	default:
-		fmt.Printf("")
+		fmt.Printf("Veuillez ne pas entrer autre chose que seconde, minute et heure")
 	}
 }
