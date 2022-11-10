@@ -7,44 +7,35 @@ import (
 
 func main() {
 
-	type Ville struct {
-		nombreHabitant int
-		codePostal     int
-		superficie     int
+	fmt.Println("Votre nombre de transactions est par seconde ? Tapez 'seconde' \nVotre nombre de transactions est par minute ? Tapez 'minute'\nVotre nombre de transactions est par heure ? Tapez 'heure'")
+	var temps string
+	fmt.Scanln(&temps)
+
+	fmt.Println("Quel est votre nombre de transactins ? ")
+	var nbTransactions int
+	fmt.Scanln(&nbTransactions)
+
+	var tempsEnSeconde int
+	var tempsEnMinute int
+	var tempsEnHeure int
+
+	switch temps {
+	case "seconde":
+		tempsEnSeconde = nbTransactions
+		tempsEnMinute = nbTransactions / 60
+		tempsEnHeure = nbTransactions / 3600
+		fmt.Println("Transactions par seconde : ", tempsEnSeconde, "\n Transactions par minute : ", tempsEnMinute, "\nTransactions par heure : ", tempsEnHeure)
+	case "minute":
+		tempsEnSeconde = nbTransactions * 60
+		tempsEnMinute = nbTransactions
+		tempsEnHeure = nbTransactions / 60
+		fmt.Println("Transactions par seconde : ", tempsEnSeconde, "\n Transactions par minute : ", tempsEnMinute, "\nTransactions par heure : ", tempsEnHeure)
+	case "heure":
+		tempsEnSeconde = nbTransactions * 3600
+		tempsEnMinute = nbTransactions * 60
+		tempsEnHeure = nbTransactions
+		fmt.Println("Transactions par seconde : ", tempsEnSeconde, "\n Transactions par minute : ", tempsEnMinute, "\nTransactions par heure : ", tempsEnHeure)
+	default:
+		fmt.Printf("")
 	}
-
-	var Villes map[string]Ville
-
-	i := 1
-	for i < 3 {
-
-		fmt.Println("Enter the first city name: ")
-		var cityName string
-		fmt.Scanln(&cityName)
-
-		fmt.Println("Enter the number of citizens: ")
-		var nombreHabitant int
-		fmt.Scanln(&nombreHabitant)
-
-		fmt.Println("Enter the postal code: ")
-		var codePostal int
-		fmt.Scanln(&codePostal)
-
-		fmt.Println("Enter the superficy: ")
-		var superficie int
-		fmt.Scanln(&superficie)
-
-		ville := Ville{nombreHabitant, codePostal, superficie}
-		fmt.Println(ville)
-
-		Villes = make(map[string]Ville)
-		Villes[cityName] = ville
-		fmt.Println(Villes[cityName])
-
-		i += i
-	}
-
-	fmt.Println(i)
-	fmt.Println(Villes)
-
 }
